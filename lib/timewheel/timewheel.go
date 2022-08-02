@@ -153,8 +153,9 @@ func (tw *TimeWheel) addTask(task *task) {
 		if ok {
 			tw.removeTask(task.key)
 		}
+		tw.timer[task.key] = loc
 	}
-	tw.timer[task.key] = loc
+	
 }
 
 func (tw *TimeWheel) getPositionAndCircle(d time.Duration) (pos int, circle int) {
